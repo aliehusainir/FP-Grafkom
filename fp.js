@@ -215,18 +215,61 @@ document.addEventListener("mousemove", event => {
 	mouse.y = -(event.clientY/h)*2+1;
 });
 
+var rotationMode = 0;
+document.addEventListener("keydown", event => {
+    if (event.key == 'X' || event.key == 'x') rotationMode = 0;
+    if (event.key == 'Y' || event.key == 'y') rotationMode = 1;
+    if (event.key == 'Z' || event.key == 'z') rotationMode = 2;
+});
+
+function updateMode(){
+    if(rotationMode == 0) document.getElementById("rotationMode").innerHTML = "Rotation Mode: X";
+    if(rotationMode == 1) document.getElementById("rotationMode").innerHTML = "Rotation Mode: Y";
+    if(rotationMode == 2) document.getElementById("rotationMode").innerHTML = "Rotation Mode: Z";
+}
+
 document.addEventListener("click", function() {
 	raycaster.setFromCamera(mouse, camera);
 	var intersects = raycaster.intersectObjects(scene.children, true);
 	if (intersects.length){
-		console.log(intersects[0]);
+        console.log(intersects[0]);
+        var pi = Math.PI;
+        if(rotationMode == 0) intersects[0].object.rotation.x += pi/2;
+        if(rotationMode == 1) intersects[0].object.rotation.y += pi/2;
+        if(rotationMode == 2) intersects[0].object.rotation.z += pi/2;
 	}
 });
 
+var r = 191, g = 68, b = 92;
+var rr = 0, rg = 0, rb = 0;
+function animateBG() {
+    var rand = Math.floor(Math.random() * 3);
+    if (rand == 0 && rr == 0) r = (r + 1) % 256;
+    if (rand == 1 && rg == 0) g = (g + 1) % 256;
+    if (rand == 2 && rb == 0) b = (b + 1) % 256;
+    if (rand == 0 && rr == 1) r = (r - 1) % 256;
+    if (rand == 1 && rg == 1) g = (g - 1) % 256;
+    if (rand == 2 && rb == 1) b = (b - 1) % 256;
+    if (r == 255) rr = 1;
+    if (r == 50) rr = 0;
+    if (g == 255) rg = 1;
+    if (g == 50) rg = 0;
+    if (b == 255) rb = 1;
+    if (b == 50) rb = 0;
+    var colorStr = 'rgb(' + r + ', ' + g + ', ' + b + ')';
+    var col = new THREE.Color(colorStr);
+    renderer.setClearColor(col);
+}
+
 function animate() {
+    animateBG();
+    updateMode();
     requestAnimationFrame(animate);
     renderer.render(scene, camera);
-    if (isSolved == 0) solve();
+    // if (isSolved == 0) {
+    //     solve();
+    //     isSolved = 1;
+    // }
 }
 
 animate();
