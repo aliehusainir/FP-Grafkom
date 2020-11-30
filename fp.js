@@ -2,10 +2,10 @@ var scene = new THREE.Scene();
 
 var w = window.innerWidth;
 var h = window.innerHeight;
-var camera = new THREE.PerspectiveCamera(35, w/h, 1, 1000);
+var camera = new THREE.PerspectiveCamera(35, w/h, 1, 100);
+camera.position.x = 200;
 camera.position.y = 5;
-camera.position.z = 40;
-camera.lookAt(new THREE.Vector3(0, 0, 0));
+camera.position.z = 240;
 
 var renderer = new THREE.WebGLRenderer();
 renderer.setSize(w, h);
@@ -15,6 +15,8 @@ renderer.shadowMap.type = THREE.PCFSoftShadowMap;
 document.body.appendChild(renderer.domElement);
 
 controls = new THREE.OrbitControls(camera, renderer.domElement);
+controls.target.set(200, 0, 200);
+camera.lookAt(new THREE.Vector3(200, 0, 200));
 
 var light = new THREE.DirectionalLight(0xffffff, 1, 1000);
 light.castShadow = true;
@@ -34,139 +36,385 @@ light.shadowCameraBottom = -20;
 // scene.add(ground);
 
 var loader = new THREE.GLTFLoader();
-var modelArray = new Array();
+var level1Array = new Array();
+loader.load('models/pipe.glb',
+    function(gltf) {
+        var model = gltf.scene;
+        model.position.set(200, 0, 200);
+        scene.add(model);
+        level1Array.push(model);
+    }
+)
+
+loader.load('models/pipe2.glb',
+    function(gltf) {
+        var model = gltf.scene;
+        model.position.set(200, 5, 195);
+        scene.add(model);
+        level1Array.push(model);
+    }
+)
+
+loader.load('models/pipe2.glb',
+    function(gltf) {
+        var model = gltf.scene;
+        model.position.set(205, 5, 200);
+        scene.add(model);
+        level1Array.push(model);
+    }
+)
+
+loader.load('models/pipe2.glb',
+    function(gltf) {
+        var model = gltf.scene;
+        model.position.set(200, 5, 205);
+        scene.add(model);
+        level1Array.push(model);
+    }
+)
+
+loader.load('models/pipe2.glb',
+    function(gltf) {
+        var model = gltf.scene;
+        model.position.set(195, 0, 195);
+        scene.add(model);
+        level1Array.push(model);
+    }
+)
+
+loader.load('models/pipe2.glb',
+    function(gltf) {
+        var model = gltf.scene;
+        model.position.set(195, 0, 205);
+        scene.add(model);
+        level1Array.push(model);
+    }
+)
+
+loader.load('models/pipe2.glb',
+    function(gltf) {
+        var model = gltf.scene;
+        model.position.set(200, -5, 195);
+        scene.add(model);
+        level1Array.push(model);
+    }
+)
+
+loader.load('models/pipe2.glb',
+    function(gltf) {
+        var model = gltf.scene;
+        model.position.set(205, -5, 200);
+        scene.add(model);
+        level1Array.push(model);
+    }
+)
+
+loader.load('models/pipe2.glb',
+    function(gltf) {
+        var model = gltf.scene;
+        model.position.set(200, -5, 205);
+        scene.add(model);
+        level1Array.push(model);
+    }
+)
+
+loader.load('models/pipe32.glb',
+    function(gltf) {
+        var model = gltf.scene;
+        model.position.set(200, 5, 200);
+        scene.add(model);
+        level1Array.push(model);
+    }
+)
+
+loader.load('models/pipe32.glb',
+    function(gltf) {
+        var model = gltf.scene;
+        model.position.set(200, 0, 195);
+        scene.add(model);
+        level1Array.push(model);
+    }
+)
+
+loader.load('models/pipe32.glb',
+    function(gltf) {
+        var model = gltf.scene;
+        model.position.set(195, 0, 200);
+        scene.add(model);
+        level1Array.push(model);
+    }
+)
+
+loader.load('models/pipe32.glb',
+    function(gltf) {
+        var model = gltf.scene;
+        model.position.set(205, 0, 200);
+        scene.add(model);
+        level1Array.push(model);
+    }
+)
+
+loader.load('models/pipe32.glb',
+    function(gltf) {
+        var model = gltf.scene;
+        model.position.set(200, 0, 205);
+        scene.add(model);
+        level1Array.push(model);
+    }
+)
+
+loader.load('models/pipe32.glb',
+    function(gltf) {
+        var model = gltf.scene;
+        model.position.set(200, -5, 200);
+        scene.add(model);
+        level1Array.push(model);
+    }
+)
+
+//Level 2
+
+var level2Array = new Array();
+loader.load('models/pipe33.glb',
+    function(gltf) {
+        var model = gltf.scene;
+        model.position.set(-5, 5, -5);
+        scene.add(model);
+        level2Array.push(model);
+    }
+)
+
+loader.load('models/pipe32.glb',
+    function(gltf) {
+        var model = gltf.scene;
+        model.position.set(0, 5, -5);
+        scene.add(model);
+        level2Array.push(model);
+    }
+)
+
+loader.load('models/pipe2.glb',
+    function(gltf) {
+        var model = gltf.scene;
+        model.position.set(5, 5, -5);
+        scene.add(model);
+        level2Array.push(model);
+    }
+)
+
+loader.load('models/pipe32.glb',
+    function(gltf) {
+        var model = gltf.scene;
+        model.position.set(-5, 5, 0);
+        scene.add(model);
+        level2Array.push(model);
+    }
+)
+
+loader.load('models/pipe32.glb',
+    function(gltf) {
+        var model = gltf.scene;
+        model.position.set(0, 5, 0);
+        scene.add(model);
+        level2Array.push(model);
+    }
+)
+
+loader.load('models/pipe32.glb',
+    function(gltf) {
+        var model = gltf.scene;
+        model.position.set(5, 5, 0);
+        scene.add(model);
+        level2Array.push(model);
+    }
+)
+
+loader.load('models/pipe2.glb',
+    function(gltf) {
+        var model = gltf.scene;
+        model.position.set(-5, 5, 5);
+        scene.add(model);
+        level2Array.push(model);
+    }
+)
+
+loader.load('models/pipe32.glb',
+    function(gltf) {
+        var model = gltf.scene;
+        model.position.set(0, 5, 5);
+        scene.add(model);
+        level2Array.push(model);
+    }
+)
+
+loader.load('models/pipe33.glb',
+    function(gltf) {
+        var model = gltf.scene;
+        model.position.set(5, 5, 5);
+        scene.add(model);
+        level2Array.push(model);
+    }
+)
+
+loader.load('models/pipe33.glb',
+    function(gltf) {
+        var model = gltf.scene;
+        model.position.set(-5, 0, -5);
+        scene.add(model);
+        level2Array.push(model);
+    }
+)
+
+loader.load('models/pipe4.glb',
+    function(gltf) {
+        var model = gltf.scene;
+        model.position.set(0, 0, -5);
+        scene.add(model);
+        level2Array.push(model);
+    }
+)
+
+loader.load('models/pipe33.glb',
+    function(gltf) {
+        var model = gltf.scene;
+        model.position.set(5, 0, -5);
+        scene.add(model);
+        level2Array.push(model);
+    }
+)
+
+loader.load('models/pipe.glb',
+    function(gltf) {
+        var model = gltf.scene;
+        model.position.set(-5, 0, 0);
+        scene.add(model);
+        level2Array.push(model);
+    }
+)
+
 loader.load('models/pipe.glb',
     function(gltf) {
         var model = gltf.scene;
         model.position.set(0, 0, 0);
         scene.add(model);
-        modelArray.push(model);
+        level2Array.push(model);
     }
 )
 
-loader.load('models/pipe2.glb',
-    function(gltf) {
-        var model = gltf.scene;
-        model.position.set(0, 5, -5);
-        scene.add(model);
-        modelArray.push(model);
-    }
-)
-
-loader.load('models/pipe2.glb',
-    function(gltf) {
-        var model = gltf.scene;
-        model.position.set(5, 5, 0);
-        scene.add(model);
-        modelArray.push(model);
-    }
-)
-
-loader.load('models/pipe2.glb',
-    function(gltf) {
-        var model = gltf.scene;
-        model.position.set(0, 5, 5);
-        scene.add(model);
-        modelArray.push(model);
-    }
-)
-
-loader.load('models/pipe2.glb',
-    function(gltf) {
-        var model = gltf.scene;
-        model.position.set(-5, 0, -5);
-        scene.add(model);
-        modelArray.push(model);
-    }
-)
-
-loader.load('models/pipe2.glb',
-    function(gltf) {
-        var model = gltf.scene;
-        model.position.set(-5, 0, 5);
-        scene.add(model);
-        modelArray.push(model);
-    }
-)
-
-loader.load('models/pipe2.glb',
-    function(gltf) {
-        var model = gltf.scene;
-        model.position.set(0, -5, -5);
-        scene.add(model);
-        modelArray.push(model);
-    }
-)
-
-loader.load('models/pipe2.glb',
-    function(gltf) {
-        var model = gltf.scene;
-        model.position.set(5, -5, 0);
-        scene.add(model);
-        modelArray.push(model);
-    }
-)
-
-loader.load('models/pipe2.glb',
-    function(gltf) {
-        var model = gltf.scene;
-        model.position.set(0, -5, 5);
-        scene.add(model);
-        modelArray.push(model);
-    }
-)
-
-loader.load('models/pipe3.glb',
-    function(gltf) {
-        var model = gltf.scene;
-        model.position.set(0, 5, 0);
-        scene.add(model);
-        modelArray.push(model);
-    }
-)
-
-loader.load('models/pipe3.glb',
-    function(gltf) {
-        var model = gltf.scene;
-        model.position.set(0, 0, -5);
-        scene.add(model);
-        modelArray.push(model);
-    }
-)
-
-loader.load('models/pipe3.glb',
-    function(gltf) {
-        var model = gltf.scene;
-        model.position.set(-5, 0, 0);
-        scene.add(model);
-        modelArray.push(model);
-    }
-)
-
-loader.load('models/pipe3.glb',
+loader.load('models/pipe.glb',
     function(gltf) {
         var model = gltf.scene;
         model.position.set(5, 0, 0);
         scene.add(model);
-        modelArray.push(model);
+        level2Array.push(model);
     }
 )
 
-loader.load('models/pipe3.glb',
+loader.load('models/pipe33.glb',
+    function(gltf) {
+        var model = gltf.scene;
+        model.position.set(-5, 0, 5);
+        scene.add(model);
+        level2Array.push(model);
+    }
+)
+
+loader.load('models/pipe4.glb',
     function(gltf) {
         var model = gltf.scene;
         model.position.set(0, 0, 5);
         scene.add(model);
-        modelArray.push(model);
+        level2Array.push(model);
     }
 )
 
-loader.load('models/pipe3.glb',
+loader.load('models/pipe33.glb',
+    function(gltf) {
+        var model = gltf.scene;
+        model.position.set(5, 0, 5);
+        scene.add(model);
+        level2Array.push(model);
+    }
+)
+
+loader.load('models/pipe2.glb',
+    function(gltf) {
+        var model = gltf.scene;
+        model.position.set(-5, -5, -5);
+        scene.add(model);
+        level2Array.push(model);
+    }
+)
+
+loader.load('models/pipe32.glb',
+    function(gltf) {
+        var model = gltf.scene;
+        model.position.set(0, -5, -5);
+        scene.add(model);
+        level2Array.push(model);
+    }
+)
+
+loader.load('models/pipe33.glb',
+    function(gltf) {
+        var model = gltf.scene;
+        model.position.set(5, -5, -5);
+        scene.add(model);
+        level2Array.push(model);
+    }
+)
+
+loader.load('models/pipe32.glb',
+    function(gltf) {
+        var model = gltf.scene;
+        model.position.set(-5, -5, 0);
+        scene.add(model);
+        level2Array.push(model);
+    }
+)
+
+loader.load('models/pipe32.glb',
     function(gltf) {
         var model = gltf.scene;
         model.position.set(0, -5, 0);
         scene.add(model);
-        modelArray.push(model);
+        level2Array.push(model);
+    }
+)
+
+loader.load('models/pipe32.glb',
+    function(gltf) {
+        var model = gltf.scene;
+        model.position.set(5, -5, 0);
+        scene.add(model);
+        level2Array.push(model);
+    }
+)
+
+loader.load('models/pipe33.glb',
+    function(gltf) {
+        var model = gltf.scene;
+        model.position.set(-5, -5, 5);
+        scene.add(model);
+        level2Array.push(model);
+    }
+)
+
+loader.load('models/pipe32.glb',
+    function(gltf) {
+        var model = gltf.scene;
+        model.position.set(0, -5, 5);
+        scene.add(model);
+        level2Array.push(model);
+    }
+)
+
+loader.load('models/pipe2.glb',
+    function(gltf) {
+        var model = gltf.scene;
+        model.position.set(5, -5, 5);
+        scene.add(model);
+        level2Array.push(model);
     }
 )
 
@@ -181,30 +429,30 @@ loader.load('models/pipe3.glb',
 // 	}
 // )
 
-var isSolved = 0;
-function solve() {
-    var pi = Math.PI;
-    modelArray[1].rotation.y = -pi/2;
-    modelArray[2].rotation.x = -pi/2;
-    modelArray[2].rotation.y = pi/2;
-    modelArray[3].rotation.y = -pi/2;
-    modelArray[4].rotation.x = -pi/2;
-    modelArray[4].rotation.y = pi/2;
-    modelArray[5].rotation.x = -pi/2;
-    modelArray[5].rotation.y = pi/2;
-    modelArray[6].rotation.y = -pi/2;
-    modelArray[7].rotation.z = -pi/2;
-    modelArray[8].rotation.x = pi/2;
-    modelArray[8].rotation.y = -pi/2;
-    modelArray[9].rotation.x = pi/2;
-    modelArray[9].rotation.z = -pi/2;
-    modelArray[11].rotation.x = pi;
-    modelArray[12].rotation.z = pi/2;
-    modelArray[13].rotation.x = -pi/2;
-    modelArray[13].rotation.y = -pi/2;
-    modelArray[14].rotation.x = -pi/2;
-    modelArray[14].rotation.z = pi/2;
-}
+// var isSolved = 0;
+// function solve() {
+//     var pi = Math.PI;
+//     level1Array[1].rotation.y = -pi/2;
+//     level1Array[2].rotation.x = -pi/2;
+//     level1Array[2].rotation.y = pi/2;
+//     level1Array[3].rotation.y = -pi/2;
+//     level1Array[4].rotation.x = -pi/2;
+//     level1Array[4].rotation.y = pi/2;
+//     level1Array[5].rotation.x = -pi/2;
+//     level1Array[5].rotation.y = pi/2;
+//     level1Array[6].rotation.y = -pi/2;
+//     level1Array[7].rotation.z = -pi/2;
+//     level1Array[8].rotation.x = pi/2;
+//     level1Array[8].rotation.y = -pi/2;
+//     level1Array[9].rotation.x = pi/2;
+//     level1Array[9].rotation.z = -pi/2;
+//     level1Array[11].rotation.x = pi;
+//     level1Array[12].rotation.z = pi/2;
+//     level1Array[13].rotation.x = -pi/2;
+//     level1Array[13].rotation.y = -pi/2;
+//     level1Array[14].rotation.x = -pi/2;
+//     level1Array[14].rotation.z = pi/2;
+// }
 
 var mouse = new THREE.Vector2;
 var raycaster = new THREE.Raycaster();
@@ -220,6 +468,20 @@ document.addEventListener("keydown", event => {
     if (event.key == 'X' || event.key == 'x') rotationMode = 0;
     if (event.key == 'Y' || event.key == 'y') rotationMode = 1;
     if (event.key == 'Z' || event.key == 'z') rotationMode = 2;
+    if (event.key == '1') {
+        camera.position.x = 200;
+        camera.position.y = 5;
+        camera.position.z = 240;
+        controls.target.set(200, 0, 200);
+        camera.lookAt(new THREE.Vector3(200, 0, 200));
+    }
+    if (event.key == '2') {
+        camera.position.x = 0;
+        camera.position.y = 5;
+        camera.position.z = 40;
+        controls.target.set(0, 0, 0);
+        camera.lookAt(new THREE.Vector3(0, 0, 0));
+    }
 });
 
 function updateMode(){
