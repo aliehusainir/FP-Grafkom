@@ -3,9 +3,9 @@ let scene = new THREE.Scene();
 let w = window.innerWidth;
 let h = window.innerHeight;
 let camera = new THREE.PerspectiveCamera(35, w/h, 1, 100);
-camera.position.x = 200;
+camera.position.x = 0;
 camera.position.y = 5;
-camera.position.z = 240;
+camera.position.z = 40;
 
 let renderer = new THREE.WebGLRenderer();
 renderer.setSize(w, h);
@@ -15,8 +15,8 @@ renderer.shadowMap.type = THREE.PCFSoftShadowMap;
 document.body.appendChild(renderer.domElement);
 
 controls = new THREE.OrbitControls(camera, renderer.domElement);
-controls.target.set(200, 0, 200);
-camera.lookAt(new THREE.Vector3(200, 0, 200));
+controls.target.set(0, 0, 0);
+camera.lookAt(new THREE.Vector3(0, 0, 0));
 
 let light = new THREE.DirectionalLight(0xffffff, 1, 1000);
 light.castShadow = true;
@@ -29,151 +29,13 @@ light.shadowCameraTop = 20;
 light.shadowCameraBottom = -20;
 
 let loader = new THREE.GLTFLoader();
-let level1Array = new Array();
-loader.load('models/pipe.glb',
-    function(gltf) {
-        let model = gltf.scene;
-        model.position.set(200, 0, 200);
-        scene.add(model);
-        level1Array.push(model);
-    }
-)
-
-loader.load('models/pipe2.glb',
-    function(gltf) {
-        let model = gltf.scene;
-        model.position.set(200, 5, 195);
-        scene.add(model);
-        level1Array.push(model);
-    }
-)
-
-loader.load('models/pipe2.glb',
-    function(gltf) {
-        let model = gltf.scene;
-        model.position.set(205, 5, 200);
-        scene.add(model);
-        level1Array.push(model);
-    }
-)
-
-loader.load('models/pipe2.glb',
-    function(gltf) {
-        let model = gltf.scene;
-        model.position.set(200, 5, 205);
-        scene.add(model);
-        level1Array.push(model);
-    }
-)
-
-loader.load('models/pipe2.glb',
-    function(gltf) {
-        let model = gltf.scene;
-        model.position.set(195, 0, 195);
-        scene.add(model);
-        level1Array.push(model);
-    }
-)
-
-loader.load('models/pipe2.glb',
-    function(gltf) {
-        let model = gltf.scene;
-        model.position.set(195, 0, 205);
-        scene.add(model);
-        level1Array.push(model);
-    }
-)
-
-loader.load('models/pipe2.glb',
-    function(gltf) {
-        let model = gltf.scene;
-        model.position.set(200, -5, 195);
-        scene.add(model);
-        level1Array.push(model);
-    }
-)
-
-loader.load('models/pipe2.glb',
-    function(gltf) {
-        let model = gltf.scene;
-        model.position.set(205, -5, 200);
-        scene.add(model);
-        level1Array.push(model);
-    }
-)
-
-loader.load('models/pipe2.glb',
-    function(gltf) {
-        let model = gltf.scene;
-        model.position.set(200, -5, 205);
-        scene.add(model);
-        level1Array.push(model);
-    }
-)
-
-loader.load('models/pipe32.glb',
-    function(gltf) {
-        let model = gltf.scene;
-        model.position.set(200, 5, 200);
-        scene.add(model);
-        level1Array.push(model);
-    }
-)
-
-loader.load('models/pipe32.glb',
-    function(gltf) {
-        let model = gltf.scene;
-        model.position.set(200, 0, 195);
-        scene.add(model);
-        level1Array.push(model);
-    }
-)
-
-loader.load('models/pipe32.glb',
-    function(gltf) {
-        let model = gltf.scene;
-        model.position.set(195, 0, 200);
-        scene.add(model);
-        level1Array.push(model);
-    }
-)
-
-loader.load('models/pipe32.glb',
-    function(gltf) {
-        let model = gltf.scene;
-        model.position.set(205, 0, 200);
-        scene.add(model);
-        level1Array.push(model);
-    }
-)
-
-loader.load('models/pipe32.glb',
-    function(gltf) {
-        let model = gltf.scene;
-        model.position.set(200, 0, 205);
-        scene.add(model);
-        level1Array.push(model);
-    }
-)
-
-loader.load('models/pipe32.glb',
-    function(gltf) {
-        let model = gltf.scene;
-        model.position.set(200, -5, 200);
-        scene.add(model);
-        level1Array.push(model);
-    }
-)
-
-//Level 2
-
-let level2Array = new Array();
+let pipesArray = new Array();
 loader.load('models/pipe33.glb',
     function(gltf) {
         let model = gltf.scene;
         model.position.set(-5, 5, -5);
         scene.add(model);
-        level2Array.push(model);
+        pipesArray.push(model);
     }
 )
 
@@ -182,7 +44,7 @@ loader.load('models/pipe32.glb',
         let model = gltf.scene;
         model.position.set(0, 5, -5);
         scene.add(model);
-        level2Array.push(model);
+        pipesArray.push(model);
     }
 )
 
@@ -191,7 +53,7 @@ loader.load('models/pipe2.glb',
         let model = gltf.scene;
         model.position.set(5, 5, -5);
         scene.add(model);
-        level2Array.push(model);
+        pipesArray.push(model);
     }
 )
 
@@ -200,7 +62,7 @@ loader.load('models/pipe32.glb',
         let model = gltf.scene;
         model.position.set(-5, 5, 0);
         scene.add(model);
-        level2Array.push(model);
+        pipesArray.push(model);
     }
 )
 
@@ -209,7 +71,7 @@ loader.load('models/pipe32.glb',
         let model = gltf.scene;
         model.position.set(0, 5, 0);
         scene.add(model);
-        level2Array.push(model);
+        pipesArray.push(model);
     }
 )
 
@@ -218,7 +80,7 @@ loader.load('models/pipe32.glb',
         let model = gltf.scene;
         model.position.set(5, 5, 0);
         scene.add(model);
-        level2Array.push(model);
+        pipesArray.push(model);
     }
 )
 
@@ -227,7 +89,7 @@ loader.load('models/pipe2.glb',
         let model = gltf.scene;
         model.position.set(-5, 5, 5);
         scene.add(model);
-        level2Array.push(model);
+        pipesArray.push(model);
     }
 )
 
@@ -236,7 +98,7 @@ loader.load('models/pipe32.glb',
         let model = gltf.scene;
         model.position.set(0, 5, 5);
         scene.add(model);
-        level2Array.push(model);
+        pipesArray.push(model);
     }
 )
 
@@ -245,7 +107,7 @@ loader.load('models/pipe33.glb',
         let model = gltf.scene;
         model.position.set(5, 5, 5);
         scene.add(model);
-        level2Array.push(model);
+        pipesArray.push(model);
     }
 )
 
@@ -254,7 +116,7 @@ loader.load('models/pipe33.glb',
         let model = gltf.scene;
         model.position.set(-5, 0, -5);
         scene.add(model);
-        level2Array.push(model);
+        pipesArray.push(model);
     }
 )
 
@@ -263,7 +125,7 @@ loader.load('models/pipe4.glb',
         let model = gltf.scene;
         model.position.set(0, 0, -5);
         scene.add(model);
-        level2Array.push(model);
+        pipesArray.push(model);
     }
 )
 
@@ -272,7 +134,7 @@ loader.load('models/pipe33.glb',
         let model = gltf.scene;
         model.position.set(5, 0, -5);
         scene.add(model);
-        level2Array.push(model);
+        pipesArray.push(model);
     }
 )
 
@@ -281,7 +143,7 @@ loader.load('models/pipe.glb',
         let model = gltf.scene;
         model.position.set(-5, 0, 0);
         scene.add(model);
-        level2Array.push(model);
+        pipesArray.push(model);
     }
 )
 
@@ -290,7 +152,7 @@ loader.load('models/pipe.glb',
         let model = gltf.scene;
         model.position.set(0, 0, 0);
         scene.add(model);
-        level2Array.push(model);
+        pipesArray.push(model);
     }
 )
 
@@ -299,7 +161,7 @@ loader.load('models/pipe.glb',
         let model = gltf.scene;
         model.position.set(5, 0, 0);
         scene.add(model);
-        level2Array.push(model);
+        pipesArray.push(model);
     }
 )
 
@@ -308,7 +170,7 @@ loader.load('models/pipe33.glb',
         let model = gltf.scene;
         model.position.set(-5, 0, 5);
         scene.add(model);
-        level2Array.push(model);
+        pipesArray.push(model);
     }
 )
 
@@ -317,7 +179,7 @@ loader.load('models/pipe4.glb',
         let model = gltf.scene;
         model.position.set(0, 0, 5);
         scene.add(model);
-        level2Array.push(model);
+        pipesArray.push(model);
     }
 )
 
@@ -326,7 +188,7 @@ loader.load('models/pipe33.glb',
         let model = gltf.scene;
         model.position.set(5, 0, 5);
         scene.add(model);
-        level2Array.push(model);
+        pipesArray.push(model);
     }
 )
 
@@ -335,7 +197,7 @@ loader.load('models/pipe2.glb',
         let model = gltf.scene;
         model.position.set(-5, -5, -5);
         scene.add(model);
-        level2Array.push(model);
+        pipesArray.push(model);
     }
 )
 
@@ -344,7 +206,7 @@ loader.load('models/pipe32.glb',
         let model = gltf.scene;
         model.position.set(0, -5, -5);
         scene.add(model);
-        level2Array.push(model);
+        pipesArray.push(model);
     }
 )
 
@@ -353,7 +215,7 @@ loader.load('models/pipe33.glb',
         let model = gltf.scene;
         model.position.set(5, -5, -5);
         scene.add(model);
-        level2Array.push(model);
+        pipesArray.push(model);
     }
 )
 
@@ -362,7 +224,7 @@ loader.load('models/pipe32.glb',
         let model = gltf.scene;
         model.position.set(-5, -5, 0);
         scene.add(model);
-        level2Array.push(model);
+        pipesArray.push(model);
     }
 )
 
@@ -371,7 +233,7 @@ loader.load('models/pipe32.glb',
         let model = gltf.scene;
         model.position.set(0, -5, 0);
         scene.add(model);
-        level2Array.push(model);
+        pipesArray.push(model);
     }
 )
 
@@ -380,7 +242,7 @@ loader.load('models/pipe32.glb',
         let model = gltf.scene;
         model.position.set(5, -5, 0);
         scene.add(model);
-        level2Array.push(model);
+        pipesArray.push(model);
     }
 )
 
@@ -389,7 +251,7 @@ loader.load('models/pipe33.glb',
         let model = gltf.scene;
         model.position.set(-5, -5, 5);
         scene.add(model);
-        level2Array.push(model);
+        pipesArray.push(model);
     }
 )
 
@@ -398,7 +260,7 @@ loader.load('models/pipe32.glb',
         let model = gltf.scene;
         model.position.set(0, -5, 5);
         scene.add(model);
-        level2Array.push(model);
+        pipesArray.push(model);
     }
 )
 
@@ -407,17 +269,13 @@ loader.load('models/pipe2.glb',
         let model = gltf.scene;
         model.position.set(5, -5, 5);
         scene.add(model);
-        level2Array.push(model);
+        pipesArray.push(model);
     }
 )
 
-let axis1 = new THREE.AxesHelper(20);
-let axis2 = new THREE.AxesHelper(20);
-axis1.name = 'axis'
-axis2.name = 'axis'
-axis2.position.set(200, 0, 200);
-scene.add(axis1);
-scene.add(axis2);
+let axis = new THREE.AxesHelper(20);
+axis.name = 'axis'
+scene.add(axis);
 
 // loader.load('models/pipe.glb',
 // 	function(gltf) {
@@ -458,8 +316,7 @@ function displayGUI(){
 
     let axisVisibleChange = gui.add(parameters, 'b').name('Show Axis');
     axisVisibleChange.onChange(function(val){
-        axis1.visible = val;
-        axis2.visible = val;
+        axis.visible = val;
     });
 
     gui.open();
@@ -477,20 +334,6 @@ document.addEventListener("keydown", event => {
     if (event.key == 'Z' || event.key == 'z'){
         rotationMode = 2;
         parameters['a'] = 'Z';
-    }
-    if (event.key == '1') {
-        camera.position.x = 200;
-        camera.position.y = 5;
-        camera.position.z = 240;
-        controls.target.set(200, 0, 200);
-        camera.lookAt(new THREE.Vector3(200, 0, 200));
-    }
-    if (event.key == '2') {
-        camera.position.x = 0;
-        camera.position.y = 5;
-        camera.position.z = 40;
-        controls.target.set(0, 0, 0);
-        camera.lookAt(new THREE.Vector3(0, 0, 0));
     }
 });
 
