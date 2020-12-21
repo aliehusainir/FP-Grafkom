@@ -184,7 +184,7 @@ let mouse = new THREE.Vector2;
 let raycaster = new THREE.Raycaster();
 let intersected;
 
-document.addEventListener("mousemove", event => {
+document.addEventListener('mousemove', event => {
   	mouse.x = (event.clientX/w)*2-1;
 	mouse.y = -(event.clientY/h)*2+1;
 });
@@ -214,7 +214,7 @@ function displayGUI(){
     gui.open();
 }
 
-document.addEventListener("keydown", event => {
+document.addEventListener('keydown', event => {
     if (event.key == 'X' || event.key == 'x'){
         rotationMode = 0;
         parameters['a'] = 'X';
@@ -235,10 +235,11 @@ function updateGUI(){
     }
 }
 
+let moves = 0;
 let xvec = new THREE.Vector3(1, 0, 0);
 let yvec = new THREE.Vector3(0, 1, 0);
 let zvec = new THREE.Vector3(0, 0, 1);
-document.addEventListener("click", function() {
+document.addEventListener('click', function() {
 	raycaster.setFromCamera(mouse, camera);
 	let intersects = raycaster.intersectObjects(scene.children, true);
 	if (intersects.length){
@@ -248,6 +249,8 @@ document.addEventListener("click", function() {
             if(rotationMode == 0) intersects[0].object.rotateOnWorldAxis(xvec, pi/2);
             if(rotationMode == 1) intersects[0].object.rotateOnWorldAxis(yvec, pi/2);
             if(rotationMode == 2) intersects[0].object.rotateOnWorldAxis(zvec, pi/2);
+            moves--;
+            document.getElementById('moves').innerHTML = 'Moves: ' + moves;
         }
 	}
 });
@@ -272,6 +275,28 @@ function animateBG() {
     renderer.setClearColor(colorStr);
 }
 
+function setTimer(duration) {
+    var start = Date.now(), diff, minutes, seconds;
+    function timer() {
+        diff = duration - (((Date.now() - start) / 1000) | 0);
+        minutes = (diff / 60) | 0;
+        seconds = (diff % 60) | 0;
+        minutes = minutes < 10 ? '0' + minutes : minutes;
+        seconds = seconds < 10 ? '0' + seconds : seconds;
+        document.getElementById('time').innerHTML = 'Time: ' + minutes + ':' + seconds; 
+        if (diff <= 0) {
+            start = Date.now() + 1000;
+        }
+    };
+    timer();
+    setInterval(timer, 1000);
+}
+
+function setMoves(maxMoves){
+    moves = maxMoves;
+    document.getElementById('moves').innerHTML = 'Moves: ' + moves;
+}
+
 function animate() {
     animateBG();
     updateGUI();
@@ -279,5 +304,7 @@ function animate() {
     renderer.render(scene, camera);
 }
 
+setTimer(90);
+setMoves(60);
 animate();
 displayGUI();

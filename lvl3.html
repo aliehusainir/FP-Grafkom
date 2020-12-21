@@ -6,9 +6,23 @@
 		<style type="text/css">
 			body { margin: 0; }
 			canvas { display: block; }
+			#time {
+				position: absolute;
+				left: 33vw;
+				transform: translate(-50%, -50%);
+				font-family: Verdana, Geneva, Tahoma, sans-serif;
+			}
+			#moves {
+				position: absolute;
+				left: 66vw;
+				transform: translate(-50%, -50%);
+				font-family: Verdana, Geneva, Tahoma, sans-serif;
+			}
 		</style>
 	</head>
 	<body>
+		<h1 id="time">Time: </h1>
+		<h1 id="moves">Moves: </h1>
 		<script src="js/three.js"></script>
         <script src="js/OrbitControls.js"></script>
 		<script src="js/GLTFLoader.js"></script>
