@@ -14,7 +14,7 @@ let scene = new THREE.Scene();
 
 let w = window.innerWidth;
 let h = window.innerHeight;
-let camera = new THREE.PerspectiveCamera(35, w/h, 1, 100);
+let camera = new THREE.PerspectiveCamera(35, w/h, 1, 1000);
 camera.position.x = 0;
 camera.position.y = 5;
 camera.position.z = 40;
@@ -30,15 +30,24 @@ controls = new THREE.OrbitControls(camera, renderer.domElement);
 controls.target.set(0, 0, 0);
 camera.lookAt(new THREE.Vector3(0, 0, 0));
 
-let light = new THREE.DirectionalLight(0xffffff, 1, 1000);
-light.castShadow = true;
-light.position.set(20, 20, 20);
+let light = new THREE.DirectionalLight(0xffffff, 0.5, 1000);
+let light2 = new THREE.DirectionalLight(0xffffff, 0.5, 1000);
+let light3 = new THREE.DirectionalLight(0xffffff, 0.5, 1000);
+let light4 = new THREE.DirectionalLight(0xffffff, 0.5, 1000);
+let light5 = new THREE.DirectionalLight(0xffffff, 0.5, 1000);
+let light6 = new THREE.DirectionalLight(0xffffff, 0.5, 1000);
+light.position.set(1, 0, 0);
+light2.position.set(-1, 0, 0);
+light3.position.set(0, 1, 0);
+light4.position.set(0, -1, 0);
+light5.position.set(0, 0, 1);
+light6.position.set(0, 0, -1);
 scene.add(light);
-
-light.shadowCameraLeft = -20;
-light.shadowCameraRight = 20;
-light.shadowCameraTop = 20;
-light.shadowCameraBottom = -20;
+scene.add(light2);
+scene.add(light3);
+scene.add(light4);
+scene.add(light5);
+scene.add(light6);
 
 let loader = new THREE.GLTFLoader();
 let pipesArray = new Array();
@@ -181,17 +190,6 @@ let axis = new THREE.AxesHelper(20);
 axis.name = 'axis'
 scene.add(axis);
 
-// loader.load('models/pipe.glb',
-// 	function(gltf) {
-//         let model = gltf.scene;
-//         // model.traverse((o) => {
-//         //     if (o.isMesh) o.material = new THREE.MeshPhongMaterial();
-//         // });
-//         model.position.set(0, 0, 0);
-// 		scene.add(model);
-// 	}
-// )
-
 let mouse = new THREE.Vector2;
 let raycaster = new THREE.Raycaster();
 let intersected;
@@ -255,7 +253,7 @@ document.addEventListener('click', function() {
 	raycaster.setFromCamera(mouse, camera);
 	let intersects = raycaster.intersectObjects(scene.children, true);
 	if (intersects.length){
-        if(intersects[0].object.name != 'axis'){
+        if(intersects[0].object.name != 'axis' && intersects[0].object.name != 'sphere'){
             console.log(intersects[0]);
             let pi = Math.PI;
             if(rotationMode == 0) intersects[0].object.rotateOnWorldAxis(xvec, pi/2);
@@ -267,25 +265,14 @@ document.addEventListener('click', function() {
 	}
 });
 
-let r = 191, g = 68, b = 92;
-let rr = 0, rg = 0, rb = 0;
-function animateBG() {
-    let rand = Math.floor(Math.random() * 3);
-    if (rand == 0 && rr == 0) r = (r + 1) % 256;
-    if (rand == 1 && rg == 0) g = (g + 1) % 256;
-    if (rand == 2 && rb == 0) b = (b + 1) % 256;
-    if (rand == 0 && rr == 1) r = (r - 1) % 256;
-    if (rand == 1 && rg == 1) g = (g - 1) % 256;
-    if (rand == 2 && rb == 1) b = (b - 1) % 256;
-    if (r == 255) rr = 1;
-    if (r == 50) rr = 0;
-    if (g == 255) rg = 1;
-    if (g == 50) rg = 0;
-    if (b == 255) rb = 1;
-    if (b == 50) rb = 0;
-    let colorStr = 'rgb(' + r + ', ' + g + ', ' + b + ')';
-    renderer.setClearColor(colorStr);
-}
+loader = new THREE.TextureLoader();
+let texture = new THREE.MeshStandardMaterial({map: loader.load('bg.jpg'), side: THREE.BackSide});
+
+let geometry = new THREE.SphereBufferGeometry(60, 32, 32, 0, 2*Math.PI, 0, Math.PI);
+let material = texture;
+let sphere = new THREE.Mesh(geometry, material);
+sphere.name = 'sphere';
+scene.add(sphere);
 
 function setTimer(duration) {
     var start = Date.now(), diff, minutes, seconds;
@@ -310,7 +297,6 @@ function setMoves(maxMoves){
 }
 
 function animate() {
-    animateBG();
     updateGUI();
     requestAnimationFrame(animate);
     renderer.render(scene, camera);
