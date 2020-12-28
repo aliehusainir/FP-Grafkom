@@ -9,15 +9,31 @@
 
   <div class="box">
     <h1>3D Pipes</h1>
-    <a href="lvl1.html">Level 1</a>
-    <a href="lvl2.html">Level 2</a>
-    <a href="lvl3.html">Level 3</a>
-    <a href="#">Level 4</a>
-    <a href="#">Level 5</a>
+    <a id="lvl1" href="lvl1.html">Level 1</a>
+    <a id="lvl2" href="lvl2.html">Level 2</a>
+    <a id="lvl3" href="lvl3.html">Level 3</a>
+    <a id="lvl4" href="lvl4.html">Level 4</a>
+    <a id="lvl5" href="#">Level 5</a>
   </div>
   <!-- <audio src="sound/slowmotion.mp3" preload="auto"></audio> -->
   <!-- <bgsound src="sound/slowmotion.mp3" loop="infinite"></bgsound> -->
   <!-- <embed src="sound/slowmotion.mp3" loop="infinite" autostart="true" hidden="true"> -->
   <iframe width="0" height="0" src="sound/slowmotion.mp3" frameborder="0" allowfullscreen></iframe>
+  <script type="text/javascript">
+    if(location.href.match(/m=m/)){
+      document.getElementById("lvl1").href += "?m=m";
+      document.getElementById("lvl2").href += "?m=m";
+      document.getElementById("lvl3").href += "?m=m";
+      document.getElementById("lvl4").href += "?m=m";
+      document.getElementById("lvl5").href += "?m=m";
+    }
+    if(location.href.match(/m=t/)){
+      document.getElementById("lvl1").href += "?m=t";
+      document.getElementById("lvl2").href += "?m=t";
+      document.getElementById("lvl3").href += "?m=t";
+      document.getElementById("lvl4").href += "?m=t";
+      document.getElementById("lvl5").href += "?m=t";
+    }
+  </script>
   </body>
 </html>

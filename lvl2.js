@@ -1,3 +1,15 @@
+let movesFlag = 0;
+let timeFlag = 0;
+
+if(location.href.match(/m=m/)){
+    document.getElementById('moves').style.visibility = "visible";
+    movesFlag = 1;
+}
+if(location.href.match(/m=t/)){
+    document.getElementById('time').style.visibility = "visible";
+    timeFlag = 1;
+}
+
 let scene = new THREE.Scene();
 
 let w = window.innerWidth;
