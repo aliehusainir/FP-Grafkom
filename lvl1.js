@@ -302,7 +302,9 @@ function animate() {
     renderer.render(scene, camera);
 }
 
+
 setTimer(90);
 setMoves(60);
 animate();
 displayGUI();
+
