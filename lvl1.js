@@ -261,6 +261,7 @@ document.addEventListener('click', function() {
             if(rotationMode == 2) intersects[0].object.rotateOnWorldAxis(zvec, pi/2);
             moves--;
             document.getElementById('moves').innerHTML = 'Moves: ' + moves;
+            if (moves == 0) window.location.href = "gameover.html";
         }
 	}
 });
@@ -284,7 +285,7 @@ function setTimer(duration) {
         seconds = seconds < 10 ? '0' + seconds : seconds;
         document.getElementById('time').innerHTML = 'Time: ' + minutes + ':' + seconds; 
         if (diff <= 0) {
-            start = Date.now() + 1000;
+            window.location.href = "gameover.html";
         }
     };
     timer();
@@ -302,9 +303,7 @@ function animate() {
     renderer.render(scene, camera);
 }
 
-
 setTimer(90);
 setMoves(60);
 animate();
 displayGUI();
-
