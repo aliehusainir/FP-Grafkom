@@ -51,11 +51,10 @@ scene.add(light6);
 
 let loader = new THREE.GLTFLoader();
 let pipesArray = new Array();
-
 loader.load('models/pipe2.glb',
     function(gltf) {
         let model = gltf.scene;
-        model.position.set(-5, 5, -12.5);
+        model.position.set(-2.5, 7.5, -7.5);
         scene.add(model);
         pipesArray.push(model);
     }
@@ -64,20 +63,139 @@ loader.load('models/pipe2.glb',
 loader.load('models/pipe2.glb',
     function(gltf) {
         let model = gltf.scene;
-        model.position.set(0, 5, -12.5);
+        model.position.set(2.5, 7.5, -7.5);
+        scene.add(model);
+        pipesArray.push(model);
+    }
+)
+
+loader.load('models/pipe.glb',
+    function(gltf) {
+        let model = gltf.scene;
+        model.position.set(-2.5, 7.5, -2.5);
+        scene.add(model);
+        pipesArray.push(model);
+    }
+)
+
+loader.load('models/pipe.glb',
+    function(gltf) {
+        let model = gltf.scene;
+        model.position.set(2.5, 7.5, -2.5);
+        scene.add(model);
+        pipesArray.push(model);
+    }
+)
+
+loader.load('models/pipe2.glb',
+    function(gltf) {
+        let model = gltf.scene;
+        model.position.set(-2.5, 7.5, 2.5);
+        scene.add(model);
+        pipesArray.push(model);
+    }
+)
+
+loader.load('models/pipe2.glb',
+    function(gltf) {
+        let model = gltf.scene;
+        model.position.set(2.5, 7.5, 2.5);
+        scene.add(model);
+        pipesArray.push(model);
+    }
+)
+
+loader.load('models/pipe.glb',
+    function(gltf) {
+        let model = gltf.scene;
+        model.position.set(-2.5, 2.5, -7.5);
+        scene.add(model);
+        pipesArray.push(model);
+    }
+)
+
+loader.load('models/pipe.glb',
+    function(gltf) {
+        let model = gltf.scene;
+        model.position.set(2.5, 2.5, -7.5);
+        scene.add(model);
+        pipesArray.push(model);
+    }
+)
+
+loader.load('models/pipe2.glb',
+    function(gltf) {
+        let model = gltf.scene;
+        model.position.set(-7.5, 2.5, -2.5);
+        scene.add(model);
+        pipesArray.push(model);
+    }
+)
+
+loader.load('models/pipe2.glb',
+    function(gltf) {
+        let model = gltf.scene;
+        model.position.set(-2.5, 2.5, -2.5);
+        scene.add(model);
+        pipesArray.push(model);
+    }
+)
+
+loader.load('models/pipe2.glb',
+    function(gltf) {
+        let model = gltf.scene;
+        model.position.set(2.5, 2.5, -2.5);
+        scene.add(model);
+        pipesArray.push(model);
+    }
+)
+
+loader.load('models/pipe2.glb',
+    function(gltf) {
+        let model = gltf.scene;
+        model.position.set(7.5, 2.5, -2.5);
+        scene.add(model);
+        pipesArray.push(model);
+    }
+)
+
+loader.load('models/pipe.glb',
+    function(gltf) {
+        let model = gltf.scene;
+        model.position.set(-7.5, 2.5, 2.5);
+        scene.add(model);
+        pipesArray.push(model);
+    }
+)
+
+loader.load('models/pipe2.glb',
+    function(gltf) {
+        let model = gltf.scene;
+        model.position.set(-2.5, 2.5, 2.5);
+        scene.add(model);
+        pipesArray.push(model);
+    }
+)
+
+loader.load('models/pipe2.glb',
+    function(gltf) {
+        let model = gltf.scene;
+        model.position.set(2.5, 2.5, 2.5);
         model.children[2].name = 'staticpipe';
         model.rotateX(Math.PI/2);
+        model.rotateY(Math.PI);
         model.traverse((o) => {
             if (o.isMesh) o.material.color.setHex(0xff0000);
         });
         scene.add(model);
+        pipesArray.push(model);
     }
 )
 
-loader.load('models/pipe2.glb',
+loader.load('models/pipe.glb',
     function(gltf) {
         let model = gltf.scene;
-        model.position.set(5, 5, -12.5);
+        model.position.set(7.5, 2.5, 2.5);
         scene.add(model);
         pipesArray.push(model);
     }
@@ -86,7 +204,24 @@ loader.load('models/pipe2.glb',
 loader.load('models/pipe2.glb',
     function(gltf) {
         let model = gltf.scene;
-        model.position.set(-5, 5, -7.5);
+        model.position.set(-7.5, 2.5, 7.5);
+        scene.add(model);
+    }
+)
+
+loader.load('models/pipe.glb',
+    function(gltf) {
+        let model = gltf.scene;
+        model.position.set(-2.5, 2.5, 7.5);
+        scene.add(model);
+        pipesArray.push(model);
+    }
+)
+
+loader.load('models/pipe.glb',
+    function(gltf) {
+        let model = gltf.scene;
+        model.position.set(2.5, 2.5, 7.5);
         scene.add(model);
         pipesArray.push(model);
     }
@@ -95,7 +230,24 @@ loader.load('models/pipe2.glb',
 loader.load('models/pipe2.glb',
     function(gltf) {
         let model = gltf.scene;
-        model.position.set(0, 5, -7.5);
+        model.position.set(7.5, 2.5, 7.5);
+        scene.add(model);
+    }
+)
+
+loader.load('models/pipe.glb',
+    function(gltf) {
+        let model = gltf.scene;
+        model.position.set(-2.5, -2.5, -7.5);
+        scene.add(model);
+        pipesArray.push(model);
+    }
+)
+
+loader.load('models/pipe.glb',
+    function(gltf) {
+        let model = gltf.scene;
+        model.position.set(2.5, -2.5, -7.5);
         scene.add(model);
         pipesArray.push(model);
     }
@@ -104,7 +256,7 @@ loader.load('models/pipe2.glb',
 loader.load('models/pipe2.glb',
     function(gltf) {
         let model = gltf.scene;
-        model.position.set(5, 5, -7.5);
+        model.position.set(-7.5, -2.5, -2.5);
         scene.add(model);
         pipesArray.push(model);
     }
@@ -113,7 +265,7 @@ loader.load('models/pipe2.glb',
 loader.load('models/pipe2.glb',
     function(gltf) {
         let model = gltf.scene;
-        model.position.set(-5, 5, -2.5);
+        model.position.set(-2.5, -2.5, -2.5);
         scene.add(model);
         pipesArray.push(model);
     }
@@ -122,7 +274,7 @@ loader.load('models/pipe2.glb',
 loader.load('models/pipe2.glb',
     function(gltf) {
         let model = gltf.scene;
-        model.position.set(0, 5, -2.5);
+        model.position.set(2.5, -2.5, -2.5);
         scene.add(model);
         pipesArray.push(model);
     }
@@ -131,7 +283,16 @@ loader.load('models/pipe2.glb',
 loader.load('models/pipe2.glb',
     function(gltf) {
         let model = gltf.scene;
-        model.position.set(5, 5, -2.5);
+        model.position.set(7.5, -2.5, -2.5);
+        scene.add(model);
+        pipesArray.push(model);
+    }
+)
+
+loader.load('models/pipe.glb',
+    function(gltf) {
+        let model = gltf.scene;
+        model.position.set(-7.5, -2.5, 2.5);
         scene.add(model);
         pipesArray.push(model);
     }
@@ -140,7 +301,7 @@ loader.load('models/pipe2.glb',
 loader.load('models/pipe2.glb',
     function(gltf) {
         let model = gltf.scene;
-        model.position.set(-5, 5, 2.5);
+        model.position.set(-2.5, -2.5, 2.5);
         scene.add(model);
         pipesArray.push(model);
     }
@@ -149,7 +310,16 @@ loader.load('models/pipe2.glb',
 loader.load('models/pipe2.glb',
     function(gltf) {
         let model = gltf.scene;
-        model.position.set(0, 5, 2.5);
+        model.position.set(2.5, -2.5, 2.5);
+        scene.add(model);
+        pipesArray.push(model);
+    }
+)
+
+loader.load('models/pipe.glb',
+    function(gltf) {
+        let model = gltf.scene;
+        model.position.set(7.5, -2.5, 2.5);
         scene.add(model);
         pipesArray.push(model);
     }
@@ -158,7 +328,24 @@ loader.load('models/pipe2.glb',
 loader.load('models/pipe2.glb',
     function(gltf) {
         let model = gltf.scene;
-        model.position.set(5, 5, 2.5);
+        model.position.set(-7.5, -2.5, 7.5);
+        scene.add(model);
+    }
+)
+
+loader.load('models/pipe.glb',
+    function(gltf) {
+        let model = gltf.scene;
+        model.position.set(-2.5, -2.5, 7.5);
+        scene.add(model);
+        pipesArray.push(model);
+    }
+)
+
+loader.load('models/pipe.glb',
+    function(gltf) {
+        let model = gltf.scene;
+        model.position.set(2.5, -2.5, 7.5);
         scene.add(model);
         pipesArray.push(model);
     }
@@ -167,7 +354,15 @@ loader.load('models/pipe2.glb',
 loader.load('models/pipe2.glb',
     function(gltf) {
         let model = gltf.scene;
-        model.position.set(-5, 5, 7.5);
+        model.position.set(7.5, -2.5, 7.5);
+        scene.add(model);
+    }
+)
+
+loader.load('models/pipe2.glb',
+    function(gltf) {
+        let model = gltf.scene;
+        model.position.set(-2.5, -7.5, 2.5);
         scene.add(model);
         pipesArray.push(model);
     }
@@ -176,7 +371,25 @@ loader.load('models/pipe2.glb',
 loader.load('models/pipe2.glb',
     function(gltf) {
         let model = gltf.scene;
-        model.position.set(0, 5, 7.5);
+        model.position.set(2.5, -7.5, 2.5);
+        scene.add(model);
+        pipesArray.push(model);
+    }
+)
+
+loader.load('models/pipe.glb',
+    function(gltf) {
+        let model = gltf.scene;
+        model.position.set(-2.5, -7.5, -2.5);
+        scene.add(model);
+        pipesArray.push(model);
+    }
+)
+
+loader.load('models/pipe.glb',
+    function(gltf) {
+        let model = gltf.scene;
+        model.position.set(2.5, -7.5, -2.5);
         scene.add(model);
         pipesArray.push(model);
     }
@@ -185,7 +398,7 @@ loader.load('models/pipe2.glb',
 loader.load('models/pipe2.glb',
     function(gltf) {
         let model = gltf.scene;
-        model.position.set(5, 5, 7.5);
+        model.position.set(-2.5, -7.5, -7.5);
         scene.add(model);
         pipesArray.push(model);
     }
@@ -194,316 +407,7 @@ loader.load('models/pipe2.glb',
 loader.load('models/pipe2.glb',
     function(gltf) {
         let model = gltf.scene;
-        model.position.set(-5, 5, 12.5);
-        scene.add(model);
-        pipesArray.push(model);
-    }
-)
-
-loader.load('models/pipe2.glb',
-    function(gltf) {
-        let model = gltf.scene;
-        model.position.set(0, 5, 12.5);
-        scene.add(model);
-        pipesArray.push(model);
-    }
-)
-
-loader.load('models/pipe2.glb',
-    function(gltf) {
-        let model = gltf.scene;
-        model.position.set(5, 5, 12.5);
-        scene.add(model);
-        pipesArray.push(model);
-    }
-)
-loader.load('models/pipe2.glb',
-    function(gltf) {
-        let model = gltf.scene;
-        model.position.set(-5, 0, -12.5);
-        scene.add(model);
-        pipesArray.push(model);
-    }
-)
-
-loader.load('models/pipe4.glb',
-    function(gltf) {
-        let model = gltf.scene;
-        model.position.set(0, 0, -12.5);
-        scene.add(model);
-        pipesArray.push(model);
-    }
-)
-
-loader.load('models/pipe2.glb',
-    function(gltf) {
-        let model = gltf.scene;
-        model.position.set(5, 0, -12.5);
-        scene.add(model);
-        pipesArray.push(model);
-    }
-)
-
-loader.load('models/pipe2.glb',
-    function(gltf) {
-        let model = gltf.scene;
-        model.position.set(-5, 0, -7.5);
-        scene.add(model);
-        pipesArray.push(model);
-    }
-)
-
-loader.load('models/pipe2.glb',
-    function(gltf) {
-        let model = gltf.scene;
-        model.position.set(5, 0, -7.5);
-        scene.add(model);
-        pipesArray.push(model);
-    }
-)
-
-loader.load('models/pipe2.glb',
-    function(gltf) {
-        let model = gltf.scene;
-        model.position.set(-5, 0, -2.5);
-        scene.add(model);
-        pipesArray.push(model);
-    }
-)
-
-loader.load('models/pipe2.glb',
-    function(gltf) {
-        let model = gltf.scene;
-        model.position.set(5, 0, -2.5);
-        scene.add(model);
-        pipesArray.push(model);
-    }
-)
-
-loader.load('models/pipe2.glb',
-    function(gltf) {
-        let model = gltf.scene;
-        model.position.set(-5, 0, 2.5);
-        scene.add(model);
-        pipesArray.push(model);
-    }
-)
-
-loader.load('models/pipe2.glb',
-    function(gltf) {
-        let model = gltf.scene;
-        model.position.set(5, 0, 2.5);
-        scene.add(model);
-        pipesArray.push(model);
-    }
-)
-
-loader.load('models/pipe2.glb',
-    function(gltf) {
-        let model = gltf.scene;
-        model.position.set(-5, 0, 7.5);
-        scene.add(model);
-        pipesArray.push(model);
-    }
-)
-
-loader.load('models/pipe2.glb',
-    function(gltf) {
-        let model = gltf.scene;
-        model.position.set(5, 0, 7.5);
-        scene.add(model);
-        pipesArray.push(model);
-    }
-)
-
-loader.load('models/pipe2.glb',
-    function(gltf) {
-        let model = gltf.scene;
-        model.position.set(-5, 0, 12.5);
-        scene.add(model);
-        pipesArray.push(model);
-    }
-)
-
-loader.load('models/pipe4.glb',
-    function(gltf) {
-        let model = gltf.scene;
-        model.position.set(0, 0, 12.5);
-        scene.add(model);
-        pipesArray.push(model);
-    }
-)
-
-loader.load('models/pipe2.glb',
-    function(gltf) {
-        let model = gltf.scene;
-        model.position.set(5, 0, 12.5);
-        scene.add(model);
-        pipesArray.push(model);
-    }
-)
-
-loader.load('models/pipe2.glb',
-    function(gltf) {
-        let model = gltf.scene;
-        model.position.set(-5, -5, -12.5);
-        scene.add(model);
-        pipesArray.push(model);
-    }
-)
-
-loader.load('models/pipe2.glb',
-    function(gltf) {
-        let model = gltf.scene;
-        model.position.set(0, -5, -12.5);
-        scene.add(model);
-        pipesArray.push(model);
-    }
-)
-
-loader.load('models/pipe2.glb',
-    function(gltf) {
-        let model = gltf.scene;
-        model.position.set(5, -5, -12.5);
-        scene.add(model);
-        pipesArray.push(model);
-    }
-)
-
-loader.load('models/pipe2.glb',
-    function(gltf) {
-        let model = gltf.scene;
-        model.position.set(-5, -5, -7.5);
-        scene.add(model);
-        pipesArray.push(model);
-    }
-)
-loader.load('models/pipe2.glb',
-    function(gltf) {
-        let model = gltf.scene;
-        model.position.set(0, -5, -7.5);
-        scene.add(model);
-        pipesArray.push(model);
-    }
-)
-
-loader.load('models/pipe2.glb',
-    function(gltf) {
-        let model = gltf.scene;
-        model.position.set(5, -5, -7.5);
-        scene.add(model);
-        pipesArray.push(model);
-    }
-)
-
-loader.load('models/pipe2.glb',
-    function(gltf) {
-        let model = gltf.scene;
-        model.position.set(-5, -5, -2.5);
-        scene.add(model);
-        pipesArray.push(model);
-    }
-)
-
-loader.load('models/pipe2.glb',
-    function(gltf) {
-        let model = gltf.scene;
-        model.position.set(0, -5, -2.5);
-        scene.add(model);
-        pipesArray.push(model);
-    }
-)
-
-loader.load('models/pipe2.glb',
-    function(gltf) {
-        let model = gltf.scene;
-        model.position.set(5, -5, -2.5);
-        scene.add(model);
-        pipesArray.push(model);
-    }
-)
-
-loader.load('models/pipe2.glb',
-    function(gltf) {
-        let model = gltf.scene;
-        model.position.set(-5, -5, 2.5);
-        scene.add(model);
-        pipesArray.push(model);
-    }
-)
-
-loader.load('models/pipe2.glb',
-    function(gltf) {
-        let model = gltf.scene;
-        model.position.set(0, -5, 2.5);
-        scene.add(model);
-        pipesArray.push(model);
-    }
-)
-
-loader.load('models/pipe2.glb',
-    function(gltf) {
-        let model = gltf.scene;
-        model.position.set(5, -5, 2.5);
-        scene.add(model);
-        pipesArray.push(model);
-    }
-)
-
-loader.load('models/pipe2.glb',
-    function(gltf) {
-        let model = gltf.scene;
-        model.position.set(-5, -5, 7.5);
-        scene.add(model);
-        pipesArray.push(model);
-    }
-)
-
-loader.load('models/pipe2.glb',
-    function(gltf) {
-        let model = gltf.scene;
-        model.position.set(0, -5, 7.5);
-        scene.add(model);
-        pipesArray.push(model);
-    }
-)
-
-loader.load('models/pipe2.glb',
-    function(gltf) {
-        let model = gltf.scene;
-        model.position.set(5, -5, 7.5);
-        scene.add(model);
-        pipesArray.push(model);
-    }
-)
-
-loader.load('models/pipe2.glb',
-    function(gltf) {
-        let model = gltf.scene;
-        model.position.set(-5, -5, 12.5);
-        scene.add(model);
-        pipesArray.push(model);
-    }
-)
-
-loader.load('models/pipe2.glb',
-    function(gltf) {
-        let model = gltf.scene;
-        model.position.set(0, -5, 12.5);
-        model.children[2].name = 'staticpipe';
-        model.rotateX(-Math.PI/2);
-        model.traverse((o) => {
-            if (o.isMesh) o.material.color.setHex(0xff0000);
-        });
-        console.log(model);
-        scene.add(model);
-    }
-)
-
-loader.load('models/pipe2.glb',
-    function(gltf) {
-        let model = gltf.scene;
-        model.position.set(5, -5, 12.5);
+        model.position.set(2.5, -7.5, -7.5);
         scene.add(model);
         pipesArray.push(model);
     }
@@ -584,7 +488,7 @@ document.addEventListener('click', function() {
             if(rotationMode == 2) intersects[0].object.rotateOnWorldAxis(zvec, pi/2);
             moves--;
             document.getElementById('moves').innerHTML = 'Moves: ' + moves;
-            if (moves == 0) window.location.href = "gameover.html";
+            if (movesFlag && moves == 0) window.location.href = "gameover.html";
         }
 	}
 });
@@ -607,9 +511,7 @@ function setTimer(duration) {
         minutes = minutes < 10 ? '0' + minutes : minutes;
         seconds = seconds < 10 ? '0' + seconds : seconds;
         document.getElementById('time').innerHTML = 'Time: ' + minutes + ':' + seconds; 
-        if (diff <= 0) {
-            window.location.href = "gameover.html";
-        }
+        if (timeFlag && diff <= 0) window.location.href = "gameover.html";
     };
     timer();
     setInterval(timer, 1000);
@@ -626,7 +528,7 @@ function animate() {
     renderer.render(scene, camera);
 }
 
-setTimer(300);
-setMoves(200);
+setTimer(240);
+setMoves(160);
 animate();
 displayGUI();

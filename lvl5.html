@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>FP Grafkom</title>
+		<style type="text/css">
+			body { margin: 0; }
+			canvas { display: block; }
+			#time {
+				position: absolute;
+				left: 50vw;
+				transform: translate(-50%, -50%);
+				font-family: Verdana, Geneva, Tahoma, sans-serif;
+				visibility: hidden;
+				color: white;
+				-webkit-text-stroke-width: 1px;
+				-webkit-text-stroke-color: black;
+			}
+			#moves {
+				position: absolute;
+				left: 50vw;
+				transform: translate(-50%, -50%);
+				font-family: Verdana, Geneva, Tahoma, sans-serif;
+				visibility: hidden;
+				color: white;
+				-webkit-text-stroke-width: 1px;
+				-webkit-text-stroke-color: black;
+			}
+		</style>
+	</head>
+	<body>
+		<h1 id="time">Time: </h1>
+		<h1 id="moves">Moves: </h1>
+		<script src="js/three.js"></script>
+        <script src="js/OrbitControls.js"></script>
+		<script src="js/GLTFLoader.js"></script>
+		<script src="js/dat.gui.min.js"></script>
+        <script src="lvl5.js"></script>
+	</body>
+</html>

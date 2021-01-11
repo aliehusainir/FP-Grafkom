@@ -51,6 +51,7 @@ scene.add(light6);
 
 let loader = new THREE.GLTFLoader();
 let pipesArray = new Array();
+
 loader.load('models/pipe.glb',
     function(gltf) {
         let model = gltf.scene;
@@ -261,7 +262,7 @@ document.addEventListener('click', function() {
             if(rotationMode == 2) intersects[0].object.rotateOnWorldAxis(zvec, pi/2);
             moves--;
             document.getElementById('moves').innerHTML = 'Moves: ' + moves;
-            if (moves == 0) window.location.href = "gameover.html";
+            if (movesFlag && moves == 0) window.location.href = "gameover.html";
         }
 	}
 });
@@ -284,9 +285,7 @@ function setTimer(duration) {
         minutes = minutes < 10 ? '0' + minutes : minutes;
         seconds = seconds < 10 ? '0' + seconds : seconds;
         document.getElementById('time').innerHTML = 'Time: ' + minutes + ':' + seconds; 
-        if (diff <= 0) {
-            window.location.href = "gameover.html";
-        }
+        if (timeFlag && diff <= 0) window.location.href = "gameover.html";
     };
     timer();
     setInterval(timer, 1000);
